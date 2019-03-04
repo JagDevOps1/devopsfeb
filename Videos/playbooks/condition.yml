@@ -1,0 +1,20 @@
+---
+
+- hosts: webserver
+  remote_user: test
+  become: yes
+
+  tasks:
+    - name: installing httpd package on RedHat
+      yum: name=httpd state=present
+      when: ansible_os_family == "RedHat"
+    
+    - name: installing apache2 package on Ubuntu
+      apt: name=apache2 state=installed
+      when: ansible_os_family == "Debian"
+
+    - name: copy index.html
+      copy: src=index.html dest=/var/www/html
+
+    - name: start httpd server
+      service: name=httpd state=started

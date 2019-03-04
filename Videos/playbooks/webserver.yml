@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  remote_user: test
+  become: yes
+  roles:
+     - webserver
+
+  

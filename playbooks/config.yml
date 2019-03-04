@@ -1,0 +1,5 @@
+---
+
+- name: create index file
+  copy: src=index.html dest=/var/www/html
+

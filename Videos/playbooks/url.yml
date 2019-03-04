@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  remote_user: test
+  become: yes
+
+  tasks:
+     - name: get url data
+       get_url: url=https://en.wikipedia.org/wiki/List_of_Linux_distributions  dest=/home/test

@@ -1,0 +1,10 @@
+---
+
+- hosts: webserver
+  remote_user: test
+  become: yes
+ 
+  tasks: 
+
+    - name: copy new index.html
+      template: src=index.html.j2 dest=/home/xyz
